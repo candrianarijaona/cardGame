@@ -1,18 +1,18 @@
 // src/app/app.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Card, CardService } from './card.service';
-import { HttpClientModule} from "@angular/common/http";
+import { CardService } from '../../services/card.service';
 import { CommonModule } from '@angular/common';
+import Card from '../../models/card.interface';
 
 @Component({
-  selector: 'app-root',
+  selector: 'card',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  imports: [CommonModule],
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class CardComponent implements OnInit {
   hand: Card[] = [];
   sortedHand: Card[] = [];
 
