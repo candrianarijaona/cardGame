@@ -2,17 +2,16 @@
 
 namespace App\Controller\Api\Card;
 
+use App\Factory\Response\JsonResponseFactory;
+use App\Service\CardService;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GetUnsortedHandAction
 {
-    #[Route('/api/card', name: 'api_card_hand', methods: ['GET'])]
-    public function __invoke()
+    #[Route('/api/cards', name: 'api_card_hand', methods: ['GET'])]
+    public function __invoke(CardService $cardService, JsonResponseFactory $jsonResponseFactory): Response
     {
-        $hand = [
-            '2H', '3D', '5S', '9C', 'KD'
-        ];
-
-        return $hand;
+        return $jsonResponseFactory->createResponse($cardService->generateHand());
     }
 }

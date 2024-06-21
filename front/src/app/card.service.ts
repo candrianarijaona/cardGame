@@ -21,6 +21,9 @@ export class CardService {
   }
 
   sortCards(cards: Card[]): Observable<Card[]> {
-    return this.http.post<Card[]>(`${this.apiUrl}/cards/sort`, cards);
+    console.log('sorting cards', cards);
+    return this.http.post<Card[]>(`${this.apiUrl}/cards/sort`, {
+      cards: cards
+    });
   }
 }
