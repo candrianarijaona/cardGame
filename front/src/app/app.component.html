@@ -1,0 +1,14 @@
+<!-- src/app/app.component.html -->
+<div>
+  <h1>Main non triée</h1>
+  <ul>
+    <li *ngFor="let card of hand">{{ card.color }} {{ card.value }}</li>
+  </ul>
+
+  <button (click)="sortCards()">Trier</button>
+
+  <h1 *ngIf="sortedHand.length">Main triée</h1>
+  <ul *ngIf="sortedHand.length">
+    <li *ngFor="let card of sortedHand">{{ card.color }} {{ card.value }}</li>
+  </ul>
+</div>
